@@ -13,108 +13,124 @@ body{
     font-size: 2rem;
     font-style: normal;
     padding: 2%;
-    background-color:rgba(0, 0, 255, 0.151);
+    background-color:blue;
     color: white;
 }
-article{
-    display: grid;
-    gap:20px;
-    grid-template: repeat(2, 0.5fr) / repeat(auto-fit, minmax(475px, 1fr));
-    grid-auto-flow: row;
+#extra{
+  text-align: center;
+  align-items: center;
+}
+/* Estilos para el contenedor */
+#contenedor {
+  display: flex;
+  flex-wrap: wrap; /* Para que las tarjetas se envuelvan si no hay suficiente espacio */
+  justify-content: space-around; /* Para distribuir el espacio disponible entre las tarjetas */
+}
+/* Estilos para cada tarjeta */
+.hola {
+  width: 300px; /* Ancho de cada tarjeta */
+  margin: 20px; /* Espacio entre tarjetas */
+  padding: 20px;
+  background-color: #dbbbbb;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.hola:hover{
+  background-color: gray;
 
 }
-.grid-item{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: solid 1px;
-    border-radius: 5px;
-    box-shadow: 3px 3px 10px rgb(0, 0, 0);
-    background: black;
+/* Estilos para la imagen */
+.hola img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
-.grid-item__info{
-    display: flex;
-    justify-content:space-around;
-    font-size: 1.5rem;
-    font-weight: 700;
+/* Estilos para el botón */
+.hola button {
+  display: block; 
+  margin: 0 auto; 
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: white;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.grid-item img{
-    height: 90%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5px;
+#extra:hover{
+  scale: 1.1;
+  background-color: black;
+  color: white;
 }
-.grid-item:hover{
-    background-color: white;
-    color: black;
+/* Estilos para el modal */
+.modalContainer {
+  display: none;
+}
 
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-.head_img{
-    width: 18%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5px;
-}
-button{
-    width: 10%;
-    font-family: cursive;
-    font-size: 90%;
-    border: none;
-    border-radius: 10%;
-}
-button:hover{
-    background-color: black;
-    color: white;
-    border-radius: 10% 10%;
-    cursor: pointer;
 
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
 }
-button {
-    background-color: white;
-    border: 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    color: black;
-    font-size: 90%;
-    padding: 10px 25px;
-  }
-  
-  .modal-container {
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.3);
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    pointer-events: none;
-    opacity: 0;  
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    transition: opacity 0.3s ease;
-  }
-  
-  .show {
-    pointer-events: auto;
-    opacity: 1;
-  }
-  
-  .modal {
-    background-color: #fff;
-    width: 600px;
-    max-width: 100%;
-    padding: 30px 50px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  .modal h1 {
-    margin: 0;
-  }
-  
-  .modal p {
-    opacity: 0.7;
-    font-size: 14px;
-  }
+#extra{
+  text-align: center;
+  align-items: center;
+}
+/* Estilos para el contenedor */
+#contenedor1 {
+  display: flex;
+  flex-wrap: wrap; /* Para que las tarjetas se envuelvan si no hay suficiente espacio */
+  justify-content: space-around; /* Para distribuir el espacio disponible entre las tarjetas */
+}
+/* Estilos para cada tarjeta */
+.hola {
+  width: 300px; /* Ancho de cada tarjeta */
+  margin: 20px; /* Espacio entre tarjetas */
+  padding: 20px;
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+/* Estilos para la imagen */
+.hola img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+/* Estilos para el botón */
+.hola button {
+  display: block; 
+  margin: 0 auto; 
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para el modal */
+.modalContainer {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
