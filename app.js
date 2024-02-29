@@ -235,9 +235,7 @@ function crearEstructuraHTML(personaje) {
     const p = document.createElement('p');
     p.textContent = personaje.about;
 
-    const imgSquare = document.createElement('img');
-    imgSquare.src = personaje.squarePic;
-    imgSquare.alt = personaje.name;
+
 
     divTitulo1.appendChild(img);
     divTitulo1.appendChild(br);
@@ -246,7 +244,6 @@ function crearEstructuraHTML(personaje) {
     divModalContent.appendChild(spanClose);
     divModalContent.appendChild(h2);
     divModalContent.appendChild(p);
-    divModalContent.appendChild(imgSquare);
 
     divModal.appendChild(divModalContent);
 
