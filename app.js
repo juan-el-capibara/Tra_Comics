@@ -204,36 +204,29 @@ const personajes1 =[
 ]
 function crearEstructuraHTML(personaje) {
     const divHola = document.createElement('div');
-    divHola.className = 'hola';
+    divHola.classList.add('personaje');
 
     const divTitulo1 = document.createElement('div');
-    divTitulo1.className = 'titulo1';
+    divTitulo1.classList.add('div-titulo1');
 
     const img = document.createElement('img');
     img.src = personaje.picture;
-    img.id = personaje.id;
-
-    const h1 = document.createElement('h1')
-    h1.src = personaje.name;
-    h1.id = personaje.id;
-
+    img.alt = personaje.name;
 
     const br = document.createElement('br');
 
     const button = document.createElement('button');
-    button.id = 'extra';
-    button.className = 'ver';
-    button.textContent = 'Obtener';
+    button.textContent = 'Ver';
+    button.classList.add('ver');
 
     const divModal = document.createElement('div');
-    divModal.id = 'myModal';
-    divModal.className = 'modalContainer';
+    divModal.classList.add('modalContainer');
 
     const divModalContent = document.createElement('div');
-    divModalContent.className = 'modal-content';
+    divModalContent.classList.add('modal-content');
 
     const spanClose = document.createElement('span');
-    spanClose.className = 'close';
+    spanClose.classList.add('close');
     spanClose.textContent = 'X';
 
     const h2 = document.createElement('h2');
@@ -242,89 +235,58 @@ function crearEstructuraHTML(personaje) {
     const p = document.createElement('p');
     p.textContent = personaje.about;
 
-    // Adjuntar elementos al árbol DOM
-    divModalContent.appendChild(spanClose);
-    divModalContent.appendChild(h2);
-    divModalContent.appendChild(p);
-
-    divModal.appendChild(divModalContent);
+    const imgSquare = document.createElement('img');
+    imgSquare.src = personaje.squarePic;
+    imgSquare.alt = personaje.name;
 
     divTitulo1.appendChild(img);
     divTitulo1.appendChild(br);
     divTitulo1.appendChild(button);
-    divTitulo1.appendChild(divModal);
 
-    divHola.appendChild(divTitulo1);
-
-    return divHola;
-}
-
-// Obtener el contenedor donde se agregarán los elementos
-const contenedor = document.getElementById('contenedor');
-
-// Crear y agregar cada estructura HTML al contenedor
-personajes.forEach(personaje => {
-    const estructuraHTML = crearEstructuraHTML(personaje);
-    contenedor.appendChild(estructuraHTML);
-});
-
-function crearEstructuraHTML(personajes1) {
-    const divHola = document.createElement('div');
-    divHola.className = 'hola';
-
-    const divTitulo1 = document.createElement('div');
-    divTitulo1.className = 'titulo1';
-
-    const img = document.createElement('img');
-    img.src = personajes1.picture;
-    img.id = personajes1.id;
-
-    const br = document.createElement('br');
-
-    const button = document.createElement('button');
-    button.id = 'extra';
-    button.className = 'ver';
-    button.textContent = 'Obtener';
-
-    const divModal = document.createElement('div');
-    divModal.id = 'myModal';
-    divModal.className = 'modalContainer';
-
-    const divModalContent = document.createElement('div');
-    divModalContent.className = 'modal-content';
-
-    const spanClose = document.createElement('span');
-    spanClose.className = 'close';
-    spanClose.textContent = 'X';
-
-    const h2 = document.createElement('h2');
-    h2.textContent = personajes1.name;
-
-    const p = document.createElement('p');
-    p.textContent = personajes1.about;
-
-    // Adjuntar elementos al árbol DOM
     divModalContent.appendChild(spanClose);
     divModalContent.appendChild(h2);
     divModalContent.appendChild(p);
+    divModalContent.appendChild(imgSquare);
 
     divModal.appendChild(divModalContent);
 
-    divTitulo1.appendChild(img);
-    divTitulo1.appendChild(br);
-    divTitulo1.appendChild(button);
-    divTitulo1.appendChild(divModal);
-
     divHola.appendChild(divTitulo1);
+    divHola.appendChild(divModal);
 
     return divHola;
 }
 
-// Obtener el contenedor donde se agregarán los elementos
-const contenedor1 = document.getElementById('contenedor1');
+function cargarPersonajes(personajes) {
+    const contenedor = document.getElementById('contenedor');
 
-// Crear y agregar cada estructura HTML al contenedor
-personajes1.forEach(personajes1 => {
-    const estructuraHTML = crearEstructuraHTML(personajes1);
-    contenedor1.appendChild(estructuraHTML);
-});
+    personajes.forEach(personaje => {
+        const elemento = crearEstructuraHTML(personaje);
+        contenedor.appendChild(elemento);
+
+        // Event listener for the button to show modal
+        const button = elemento.querySelector('.ver');
+        button.addEventListener('click', () => {
+            const modal = elemento.querySelector('.modalContainer');
+            modal.style.display = 'block';
+        });
+
+        // Event listener for closing modal
+        const spanClose = elemento.querySelector('.close');
+        spanClose.addEventListener('click', () => {
+            const modal = elemento.querySelector('.modalContainer');
+            modal.style.display = 'none';
+        });
+
+        // Event listener to close modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            const modal = elemento.querySelector('.modalContainer');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+}
+
+// Call the function to load characters from both arrays
+cargarPersonajes(personajes);
+cargarPersonajes(personajes1);
