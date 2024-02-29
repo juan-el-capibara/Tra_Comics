@@ -1,6 +1,6 @@
 const personajes =[
     {"id": "IronMan",
-    "about": "Ipsum duis incididunt ullamco tempor. Amet incididunt Lorem consequat labore culpa. Pariatur amet veniam reprehenderit sunt laborum excepteur. Labore eu ut ut Lorem labore aliqua quis ex elit nulla in incididunt commodo aliquip. Velit excepteur eiusmod Lorem esse officia. Irure aliquip Lorem fugiat voluptate dolor duis consectetur aliquip pariatur tempor reprehenderit deserunt.",
+    "about": "Anthony Edward Tony Stark es un multimillonario magnate empresarial y filántropo estadounidense, playboy e ingenioso científico, que sufrió una grave lesión en el pecho durante un secuestro en el Medio Oriente",
     "picture": "https://www.comicquestcol.com/wp-content/uploads/2023/09/iron-man-vol-2.PNG.jpg",
 "squarePic": "https://wallpapers-clan.com/wp-content/uploads/2023/11/marvel-iron-man-colorful-desktop-wallpaper-preview.jpg",
     "name":" Iron Man"}
@@ -249,7 +249,8 @@ function crearEstructuraHTML(personaje) {
 
     divHola.appendChild(divTitulo1);
     divHola.appendChild(divModal);
-
+    divHola.style.background = `url('${personaje.squarePic}')`;
+    divModalContent.img = `url('${personaje.squarePic}')`
     return divHola;
 }
 
@@ -287,3 +288,5 @@ function cargarPersonajes(personajes) {
 // Call the function to load characters from both arrays
 cargarPersonajes(personajes);
 cargarPersonajes(personajes1);
+
+
