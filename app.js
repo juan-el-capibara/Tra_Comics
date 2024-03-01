@@ -287,6 +287,93 @@ function cargarPersonajes(personajes) {
 
 // Call the function to load characters from both arrays
 cargarPersonajes(personajes);
+
+
+function crearEstructuraHTML(personaje) {
+    const divHola = document.createElement('div');
+    divHola.classList.add('personaje');
+
+    const divTitulo1 = document.createElement('div');
+    divTitulo1.classList.add('div-titulo1');
+
+    const img = document.createElement('img');
+    img.src = personaje.picture;
+    img.alt = personaje.name;
+
+    const br = document.createElement('br');
+
+    const button = document.createElement('button');
+    button.textContent = 'Ver';
+    button.classList.add('ver');
+
+    const divModal = document.createElement('div');
+    divModal.classList.add('modalContainer');
+
+    const divModalContent = document.createElement('div');
+    divModalContent.classList.add('modal-content');
+
+    const spanClose = document.createElement('span');
+    spanClose.classList.add('close');
+    spanClose.textContent = 'X';
+
+    const h2 = document.createElement('h2');
+    h2.textContent = personaje.name;
+
+    const p = document.createElement('p');
+    p.textContent = personaje.about;
+
+
+
+    divTitulo1.appendChild(img);
+    divTitulo1.appendChild(br);
+    divTitulo1.appendChild(button);
+
+    divModalContent.appendChild(spanClose);
+    divModalContent.appendChild(h2);
+    divModalContent.appendChild(p);
+
+    divModal.appendChild(divModalContent);
+
+    divHola.appendChild(divTitulo1);
+    divHola.appendChild(divModal);
+    divHola.style.background = `url('${personaje.squarePic}')`;
+    divModalContent.img = `url('${personaje.squarePic}')`
+    return divHola;
+}
+
+function cargarPersonajes(personaje) {
+    const contenedor = document.getElementById('contenedor1');
+
+    personajes.forEach(personaje => {
+        const elemento = crearEstructuraHTML(personaje);
+        contenedor.appendChild(elemento);
+
+        // Event listener for the button to show modal
+        const button = elemento.querySelector('.ver');
+        button.addEventListener('click', () => {
+            const modal = elemento.querySelector('.modalContainer');
+            modal.style.display = 'block';
+        });
+
+        // Event listener for closing modal
+        const spanClose = elemento.querySelector('.close');
+        spanClose.addEventListener('click', () => {
+            const modal = elemento.querySelector('.modalContainer');
+            modal.style.display = 'none';
+        });
+
+        // Event listener to close modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            const modal = elemento.querySelector('.modalContainer');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+}
+
+// Call the function to load characters from both arrays
 cargarPersonajes(personajes1);
+
 
 
