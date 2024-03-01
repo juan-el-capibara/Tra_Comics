@@ -203,8 +203,8 @@ const personajes1 =[
 
 ]
 function crearEstructuraHTML(personaje) {
-    const divHola = document.createElement('div');
-    divHola.classList.add('personaje');
+    const divVentana = document.createElement('div');
+    divVentana.classList.add('personaje');
 
     const divTitulo1 = document.createElement('div');
     divTitulo1.classList.add('div-titulo1');
@@ -247,11 +247,11 @@ function crearEstructuraHTML(personaje) {
 
     divModal.appendChild(divModalContent);
 
-    divHola.appendChild(divTitulo1);
-    divHola.appendChild(divModal);
-    divHola.style.background = `url('${personaje.squarePic}')`;
+    divVentana.appendChild(divTitulo1);
+    divVentana.appendChild(divModal);
+    divVentana.style.background = `url('${personaje.squarePic}')`;
     divModalContent.img = `url('${personaje.squarePic}')`
-    return divHola;
+    return divVentana;
 }
 
 function cargarPersonajes(personajes) {
@@ -290,8 +290,8 @@ cargarPersonajes(personajes);
 
 
 function crearEstructuraHTML(personaje) {
-    const divHola = document.createElement('div');
-    divHola.classList.add('personaje');
+    const divVentana = document.createElement('div');
+    divVentana.classList.add('personaje');
 
     const divTitulo1 = document.createElement('div');
     divTitulo1.classList.add('div-titulo1');
@@ -334,11 +334,11 @@ function crearEstructuraHTML(personaje) {
 
     divModal.appendChild(divModalContent);
 
-    divHola.appendChild(divTitulo1);
-    divHola.appendChild(divModal);
-    divHola.style.background = `url('${personaje.squarePic}')`;
+    divVentana.appendChild(divTitulo1);
+    divVentana.appendChild(divModal);
+    divVentana.style.background = `url('${personaje.squarePic}')`;
     divModalContent.img = `url('${personaje.squarePic}')`
-    return divHola;
+    return divVentana;
 }
 
 function cargarPersonajes(personaje) {
